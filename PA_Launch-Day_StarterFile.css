@@ -1,0 +1,269 @@
+
+/*
+    Author: Adam Smithhisler
+    Date: November 8, 2026
+    Assignment: 5.4_PA_Launch-Day_SMITHHISLER
+
+    Purpose: Style the Satellite Uplink Command Center
+    with two visual modes. Ground Standby uses dark
+    charcoal and cool blue-gray colors. Uplink Mode
+    uses dark charcoal and warm amber-orange colors.
+*/
+
+/* =========================================
+   GENERAL PAGE SETTINGS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+
+    /* Default standby colors */
+    --page: #161b22;
+    --panel: #222b35;
+    --text: #dbe5ef;
+    --accent: #9bb6ce;
+    --border: #516475;
+    --glow: transparent;
+
+    background-color: var(--page);
+    color: var(--text);
+
+    transition:
+        background-color 0.5s,
+        color 0.5s;
+}
+
+/* =========================================
+   GROUND STANDBY MODE
+   Static file / offline appearance
+========================================= */
+
+body.standby-mode {
+    --page: #161b22;
+    --panel: #222b35;
+    --text: #dbe5ef;
+    --accent: #9bb6ce;
+    --border: #516475;
+    --glow: transparent;
+}
+
+/* =========================================
+   UPLINK MODE
+   Locally hosted / online appearance
+========================================= */
+
+body.uplink-mode {
+    --page: #18140f;
+    --panel: #292117;
+    --text: #ffedd1;
+    --accent: #ffb454;
+    --border: #bc7027;
+    --glow: rgba(255, 146, 39, 0.26);
+}
+
+/* =========================================
+   HEADER AND FOOTER
+========================================= */
+
+header,
+footer {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: var(--panel);
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   MAIN PAGE LAYOUT
+========================================= */
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section,
+aside {
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Command center panels */
+
+.panel,
+#hero {
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 0 18px var(--glow);
+}
+
+article {
+    margin-top: 1.5rem;
+}
+
+article h3 {
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+}
+
+section h2,
+aside h2 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+#hero {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+#heroTitle {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+#heroText {
+    font-size: 1.1rem;
+}
+
+/* Glowing title for active Uplink Mode */
+
+body.uplink-mode #heroTitle {
+    text-shadow:
+        0 0 15px rgba(255, 165, 50, 0.6);
+}
+
+/* =========================================
+   CONNECTION AND SYSTEM INFORMATION
+========================================= */
+
+#connectionStatus {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+#lastOnline,
+#hostInfo,
+#portInfo,
+#protocolInfo {
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   REFRESH TELEMETRY BUTTON
+========================================= */
+
+button {
+    margin-top: 1rem;
+    padding: 0.85rem 1.25rem;
+
+    background-color: var(--accent);
+    color: var(--page);
+
+    border: none;
+    border-radius: 5px;
+
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        filter 0.2s;
+}
+
+button:hover,
+button:focus-visible {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+button:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 768px) {
+
+    main {
+        padding: 1rem;
+    }
+
+    section,
+    aside {
+        padding: 1.25rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #hero {
+        padding: 2.5rem 1rem;
+    }
+
+    #heroTitle {
+        font-size: 2rem;
+    }
+}

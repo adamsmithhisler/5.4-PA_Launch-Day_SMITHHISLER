@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+        Author: Adam Smithhisler
+        Date: November 8, 2026
+        Assignment: 5.4_PA_Launch-Day_SMITHHISLER
+
+        Purpose: Create a fictional Satellite Uplink
+        Command Center that detects whether the webpage
+        is opened directly as a static file or through
+        a local development server.
+
+        JavaScript will update connection information,
+        switch between Ground Standby and Uplink Mode,
+        refresh the interface, and store the previous
+        launch timestamp using a browser cookie.
+    -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Satellite Uplink Command Center</title>
+
+    <!-- External CSS stylesheet -->
+    <link rel="stylesheet"
+          href="PA_Launch-Day_StarterFile.css">
+
+    <!-- External JavaScript file -->
+    <script src="PA_Launch-Day_StarterFile.js"
+            defer></script>
+
+</head>
+
+<body class="standby-mode">
+
+    <!-- ========================================
+         HEADER AND NAVIGATION
+    ========================================= -->
+
+    <header>
+
+        <h1>Satellite Uplink Command Center</h1>
+
+        <nav aria-label="Primary">
+
+            <ul>
+                <li><a href="#hero">Command</a></li>
+                <li><a href="#systems">Systems</a></li>
+                <li><a href="#mission">Mission</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================================
+         MAIN CONTENT
+    ========================================= -->
+
+    <main>
+
+        <!-- ========================================
+             COMMAND CENTER STATUS
+        ========================================= -->
+
+        <section id="hero">
+
+            <h2 id="heroTitle">
+                GROUND STANDBY
+            </h2>
+
+            <p id="heroText">
+                Awaiting Uplink Authorization...
+            </p>
+
+        </section>
+
+        <!-- ========================================
+             CONNECTION STATUS
+        ========================================= -->
+
+        <section id="status" class="panel">
+
+            <h2>Connection Status</h2>
+
+            <article>
+
+                <h3>Signal Status</h3>
+
+                <p id="connectionStatus">
+                    OFFLINE
+                </p>
+
+            </article>
+
+            <article>
+
+                <h3>Last Time Launched</h3>
+
+                <!--
+                    JavaScript displays the timestamp
+                    saved in the lastUplink cookie.
+                -->
+
+                <p id="lastOnline">
+                    No uplink records found.
+                </p>
+
+            </article>
+
+        </section>
+
+        <!-- ========================================
+             SATELLITE SYSTEMS
+        ========================================= -->
+
+        <section id="systems" class="panel">
+
+            <h2>Satellite Systems</h2>
+
+            <!-- Refresh button -->
+
+            <article>
+
+                <h3>Signal Refresh</h3>
+
+                <p>
+                    Request updated telemetry from
+                    the command network.
+                </p>
+
+                <button
+                    type="button"
+                    id="refreshButton">
+
+                    Refresh Telemetry
+
+                </button>
+
+            </article>
+
+            <!-- Local host information -->
+
+            <article>
+
+                <h3>Local Host Name</h3>
+
+                <p id="hostInfo">
+                    Detecting host...
+                </p>
+
+            </article>
+
+            <!-- Communication port -->
+
+            <article>
+
+                <h3>Current Communication Port</h3>
+
+                <p id="portInfo">
+                    Detecting port...
+                </p>
+
+            </article>
+
+            <!-- Transmission protocol -->
+
+            <article>
+
+                <h3>Current Transmission Protocol</h3>
+
+                <p id="protocolInfo">
+                    Detecting protocol...
+                </p>
+
+            </article>
+
+        </section>
+
+        <!-- ========================================
+             MISSION BRIEF
+        ========================================= -->
+
+        <aside id="mission" class="panel">
+
+            <h2>Mission Brief</h2>
+
+            <p>
+                Deploy the command center through a
+                local web server running on your computer.
+
+                While the station remains inaccessible
+                to the public internet because it has not
+                been deployed to a hosting provider,
+                the system can establish a local uplink.
+            </p>
+
+        </aside>
+
+    </main>
+
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <p>
+            Satellite Relay Network &bull;
+            Training Environment 2026
+            for Agent ADASMI6974
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
